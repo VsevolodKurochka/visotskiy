@@ -1,20 +1,24 @@
 .header
-	+row()
+	+relative()
 	min-height: 600px
 
 	height: 100vh
 
 	+min(sm)
 		+row()
+		align-items: center
+
+		&:before
+			content: ""
+			+absolute(0, null, null, 0)
+			+size(50%, 100%)
+			background-color: #141414
 
 	&__content
 		color: $color-white
-		background-color: #141414
 
 		+min(sm)
-			display: flex
-			align-items: center
-			justify-content: center
+			padding-right: 30px
 
 	&__breadcrumbs
 		color: #636363
@@ -22,6 +26,9 @@
 
 		+min(md)
 			font-size: 13px
+
+		+min(xlg)
+			font-size: 17px
 
 		a
 			text-decoration: none
@@ -44,3 +51,9 @@
 
 			+min(sm)
 				+size(200px, 4px)
+
+	&__bg
+
+		+min(sm)
+			+absolute(0, 0)
+			+size(50%, 100%)
