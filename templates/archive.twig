@@ -1,13 +1,6 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<section class="section">
-		<div class="container">
-			<div class="row">
-				{% for post in posts %}
-					{{siteMacros.review('col-12 col-sm-6', post)}}
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+	{% include 'archive/header.twig' %}
+	{% include 'archive/content.twig' %}
 {% endblock %}

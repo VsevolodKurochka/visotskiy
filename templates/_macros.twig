@@ -1,5 +1,13 @@
-{% macro header() %}
-	header.
+{% macro header(title, image) %}
+	<header class="header">
+		<div class="col-12 col-sm-6 header__content">
+			<div class="header__content-inner">
+				<div class="header__breadcrumbs">{{ function('bcn_display') }}</div>
+				<h1 class="header__title title-md">{{title}}</h1>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 header__bg" style="background-image: url({{image}})"></div>
+	</header>
 {% endmacro %}
 {% macro review(class, post) %}
 	<div class="review {{class}}">

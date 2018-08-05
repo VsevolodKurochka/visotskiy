@@ -1,0 +1,46 @@
+.header
+	+row()
+	min-height: 600px
+
+	height: 100vh
+
+	+min(sm)
+		+row()
+
+	&__content
+		color: $color-white
+		background-color: #141414
+
+		+min(sm)
+			display: flex
+			align-items: center
+			justify-content: center
+
+	&__breadcrumbs
+		color: #636363
+		font-size: 12px
+
+		+min(md)
+			font-size: 13px
+
+		a
+			text-decoration: none
+			color: inherit
+			+transition()
+
+			&:hover
+				color: $color-brand-1
+
+	&__title
+		+relative()
+		+font('eb')
+		padding-bottom: 10px
+
+		&:before
+			content: ""
+			+absolute(null, null, 0, 0)
+			+size(100px, 2px)
+			background-color: $color-brand-1
+
+			+min(sm)
+				+size(200px, 4px)
