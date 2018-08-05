@@ -32,3 +32,31 @@
 		&-image
 			+size(100%)
 			object-fit: cover
+
+		&-info
+			+min(sm)
+				display: flex
+				align-items: center
+
+			&-image
+				border-radius: 100%
+				margin-bottom: 15px
+				
+				+min(sm)
+					margin-bottom: 0
+					margin-right: 15px
+
+			&-body
+				&-excerpt
+					margin-bottom: 15px
+
+				&-link
+					display: block
+					color: $color-black
+					text-transform: uppercase
+					text-decoration: none
+					+font('eb')
+					+transition()
+
+					&:hover
+						color: $color-brand-1
