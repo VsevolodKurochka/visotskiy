@@ -1,5 +1,8 @@
-{% macro review(post) %}
-	<div class="review">
+{% macro header() %}
+	header.
+{% endmacro %}
+{% macro review(class, post) %}
+	<div class="review {{class}}">
 		<div class="review__header">
 			<p class="review__header-category">{{ post.terms('category') | join(', ') }}</p>
 			<p class="review__header-name">{{post.name}}</p>

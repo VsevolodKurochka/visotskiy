@@ -5,9 +5,7 @@
 		<div class="container">
 			<div class="row">
 				{% for post in posts %}
-					<div class="col-12 col-sm-6">
-						{{siteMacros.review(post)}}
-					</div>
+					{{siteMacros.review('col-12 col-sm-6', post)}}
 				{% endfor %}
 			</div>
 		</div>
