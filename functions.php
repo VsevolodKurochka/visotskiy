@@ -36,7 +36,7 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
+		add_action( 'wp_footer', array( $this, 'register_scripts' ) );
 		add_filter('upload_mimes', array($this, 'cc_mime_types'), 1, 1);
 
 		$this->add_options_page();
