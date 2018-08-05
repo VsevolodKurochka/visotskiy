@@ -1,21 +1,16 @@
-{% block html_head_container %}
-
+{% import '_macros.twig' as siteMacros %}
 {% include 'html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
-{% endblock %}
+</head>
+<body class="{{body_class}}" data-template="base.twig">
+	{% include 'nav.twig' %}
+	<main class="site">
 
-	<body class="{{body_class}}" data-template="base.twig">
-		{% include 'nav.twig' %}
-		<main class="site">
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
 
-			{% block content %}
-				Sorry, no content
-			{% endblock %}
-
-			{% include 'footer.twig' %}
-		</main>
-		{{ function('wp_footer') }}
-	</body>
+		{% include 'footer.twig' %}
+	</main>
+	{{ function('wp_footer') }}
+</body>
 </html>
