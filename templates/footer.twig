@@ -3,25 +3,23 @@
 		<div class="footer__row row">
 			<div class="col-12 col-sm-6 col-md-5">
 				<div class="footer__info">
-					<img src="{{options.footer_logo}}" class="footer__logo" alt="{{site.name}}">
+					<img src="{{options.footer_logo}}" class="footer__info-logo" alt="{{site.name}}">
 					<div class="footer__info-content">
 						<p class="footer__info-content-name">{{site.name}}</p>
 						<div class="footer__info-content-place">{{options.address}}</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-5">
-				<ul class="footer__phones">
+			<div class="col-12 col-sm-6 col-md-3">
+				<ul class="footer__list footer__list_phones">
 					{% for phone in options.phones %}
-						<li><a class="footer__phone" href="tel: {{phone.phone}}">{{phone.phone}}</a></li>
+						<li><a class="footer__list-link" href="tel: {{phone.phone}}">{{phone.phone}}</a></li>
 					{% endfor %}
 				</ul>
 
-				<ul class="footer__emails">
+				<ul class="footer__list footer__list_emails">
 					{% for email in options.emails %}
-						<li>
-							<a class="footer__email" href="mailto: {{email.email}}">{{email.email}}</a>
-						</li>
+						<li><a class="footer__list-link" href="mailto: {{email.email}}">{{email.email}}</a></li>
 					{% endfor %}
 				</ul>
 			</div>

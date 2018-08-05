@@ -1,2 +1,68 @@
 +b('footer')
-	font-size: 12px
+	+padding-y(30px)
+	background-color: #141414
+	color: #4a4a4a
+
+	+min(md)
+		+padding-y(60px)
+
+	&__row
+
+		+min(sm)
+			align-items: center
+			justify-content: space-between
+
+	&__contacts
+		+min(md)
+			display: flex
+			justify-content: flex-end
+
+	&__info
+
+		+min(sm)
+			display: flex
+			align-items: center
+
+		&-logo
+			opacity: 0.23
+
+			+min(sm)
+				margin-right: 30px
+
+		&-content
+			&-name
+				+font('eb')
+
+	&__list
+		+relative()
+		+offset(15px)
+		padding-left: 35px
+		list-style: none
+
+		&:before
+			content: ""
+			+absolute(0, null, null, 0)
+			+size(25px)
+			opacity: 0.23
+
+		&_phones
+			&:before
+				+bg('../img/icon-phone.svg')
+
+		&_emails
+			&:before
+				+bg('../img/icon-email.svg')
+
+		&-link
+			color: inherit
+			display: block
+			text-decoration: none
+
+			+transition()
+			+font('eb')
+
+			+min(md)
+				font-size: 20px
+
+			&:hover
+				color: $color-brand-1
