@@ -17,6 +17,8 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+show_admin_bar(false);
+
 Timber::$dirname = array('templates', 'views');
 
 class StarterSite extends TimberSite {
@@ -61,7 +63,7 @@ class StarterSite extends TimberSite {
 
 		//wp_enqueue_script( 'js-jquery', get_template_directory_uri() . '/static/build/js/jquery.main.js', array(), '20151215', true );
 
-		//wp_enqueue_script( 'js-vanilla-scripts', get_template_directory_uri() . '/static/build/js/vanilla.main.js', array(), '20151215', true );
+		wp_enqueue_script( 'js-vanilla-scripts', get_template_directory_uri() . '/static/build/js/vanilla.main.js', array(), '20151215', true );
 	}
 
 	function generate_menu() {

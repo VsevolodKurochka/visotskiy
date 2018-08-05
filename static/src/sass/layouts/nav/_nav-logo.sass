@@ -8,10 +8,17 @@
 			justify-content: space-between
 
 		+ee('content')
-			display: inline-block
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			background-color: $color-brand-1
+			+min(md)
+				+size(110px)
+				margin-bottom: -20px
 		
 		img
+			width: auto
 			vertical-align: middle
 			
 			+max(md)
-				max-height: 24px
+				max-height: 35px

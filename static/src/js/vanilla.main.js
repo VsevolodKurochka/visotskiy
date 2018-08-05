@@ -165,8 +165,6 @@
 			this.addition = document.getElementById('js-nav-addition-button-1');
 			this.links = '.nav__menu-item-link';
 
-			this.linksScroll();
-
 			if(exists(this.navigation)) {
 				this.navigationScroll();
 			}
@@ -203,29 +201,11 @@
 			toggleClass(this.addition, 'active');
 
 		}
-
-		linksScroll() {
-
-			new SmoothScroll(this.links, {
-				after: () => {
-					removeClass(this.hamburger, 'active');
-					removeClass(this.menu, `nav__menu_active`);
-				}
-			});
-
-		}
 	}
 
 	document.addEventListener("DOMContentLoaded", function(){
 
-		new Modal();
 		new Navigation();
-
-		var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-		if(iOS){
-			document.body.style.cursor = 'pointer';
-		}
 
 	});
 }());
