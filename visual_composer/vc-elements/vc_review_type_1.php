@@ -82,15 +82,12 @@ class vcReviewType1 extends WPBakeryShortCode {
 				);
 				 
 				// Fill $html var with data
-				$img = wp_get_attachment_image_src($image_url, "large");
-				$imgSrc = $img[0];
-
-				$button_text = '';
+				$img = wp_get_attachment_image_url($image_url, 'full');
 
 				$html = '
 				<div class="review-type-1">
 					<div class="review-type-1__header">
-						<img src="'.$imgSrc.'" alt="'.$title.'" class="review-type-1__header-image">
+						<img src="'.$img.'" alt="'.$title.'" class="review-type-1__header-image">
 						<div class="review-type-1__header-content">
 							<p class="review-type-1__header-title">'.$title.'</p>
 						</div>

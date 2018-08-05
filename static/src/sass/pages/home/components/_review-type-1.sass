@@ -1,0 +1,35 @@
+.review-type-1
+	+offset()
+
+	&__header
+		+relative()
+		font-size: 0
+		z-index: 1
+		margin-bottom: 30px
+
+		&:before
+			content: ""
+			+absolute(0, null, null, 0)
+			+size(100%)
+			background-color: transparentize($color-black, 0.4)
+
+		&-content
+			+absolute(null, null, 0, 0)
+			padding-left: 30px
+			padding-bottom: 30px
+
+		&-title
+			color: $color-white
+			+font('eb')
+
+			font-size: 20px
+
+			+min(sm)
+				font-size: 24px
+
+			+min(lg)
+				font-size: 28px
+
+	&__content
+		p
+			+offset(15px)
