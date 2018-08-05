@@ -24,13 +24,33 @@ if ( ! class_exists( 'Timber' ) ) {
 
 show_admin_bar(false);
 
-// function custom_posts_per_page( $query ) {
+function custom_next_post($post_id){
+  $next_post = get_adjacent_post( true, '', true );
+  if (is_a($next_post, 'WP_Post')){
+  	$category = get_the_category( $next_post->ID );
 
-// 	if ( $query->is_archive() ) {
-// 	    set_query_var('posts_per_page', 1);
-// 	}
-// }
-// add_action( 'pre_get_posts', 'custom_posts_per_page' );
+  	$echo = "<a href=" . get_permalink($next_post->ID) . " class='single-pagination__link single-pagination__link_next'>";
+  		$echo .= "<span class='single-pagination__link-category'>".esc_html( $category[0]->name )."</span>";
+  		$echo .= "<span class='single-pagination__link-name'>".get_the_title($next_post->ID)."</span>";
+    $echo .= "</a>";
+    echo $echo;
+  }
+}
+
+//custom prev post within taxonomy term
+function custom_prev_post($post_id){
+  $prev_post = get_adjacent_post( true, '', false );
+
+  if (is_a($prev_post, 'WP_Post')){
+  	$category = get_the_category( $prev_post->ID );
+
+  	$echo = "<a href=" . get_permalink($prev_post->ID) . " class='single-pagination__link single-pagination__link_prev'>";
+  		$echo .= "<span class='single-pagination__link-category'>".esc_html( $category[0]->name )."</span>";
+  		$echo .= "<span class='single-pagination__link-name'>".get_the_title($prev_post->ID)."</span>";
+    $echo .= "</a>";
+    echo $echo;
+  }
+}
 
 Timber::$dirname = array('templates', 'views');
 

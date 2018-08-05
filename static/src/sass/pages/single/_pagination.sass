@@ -1,0 +1,51 @@
+.single-pagination
+	margin-top: 45px
+	+min(sm)
+		margin-top: 60px
+	&__next
+		text-align: right
+
+	&__link
+		+relative()
+		display: inline-block
+		text-decoration: none
+		color: $color-black
+		+font('eb')
+		+transition()
+
+		@at-root
+			%arrow
+				content: ""
+				+size(30px, 21px)
+				margin-top: -10.5px
+				+absolute(50%)
+				+bg('../img/pagenavi-arrow.svg')
+				+transition()
+
+				+min(sm)
+					+size(50px, 35px)
+					margin-top: -17.5px
+	
+		&_prev
+			padding-left: 45px
+			+min(sm)
+				padding-left: 70px
+			&:before
+				@extend %arrow
+				transform: scaleX(-1)
+				left: 0
+		
+		&_next
+			padding-right: 45px
+			+min(sm)
+				padding-right: 70px
+			&:before
+				@extend %arrow
+				right: 0
+
+		&:hover
+			color: $color-brand-1
+
+		&-category
+			display: block
+			font-size: 80%
