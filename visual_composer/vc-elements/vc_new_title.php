@@ -23,29 +23,38 @@ class vcInfoBox extends WPBakeryShortCode {
 				// Map the block with vc_map()
 				vc_map( 
 						array(
-								'name' => __('Заголовок', 'crypto'),
+								'name' => __('Заголовок', 'visotskiy'),
 								'base' => 'vc_infobox',
-								'description' => __('Заголовок', 'crypto'), 
-								'category' => __('Для работы с сайтом', 'crypto'),         
+								'description' => __('Заголовок', 'visotskiy'), 
+								'category' => __('Для работы с сайтом', 'visotskiy'),         
 								'params' => array(
 										array(
-					            "type" => "textarea_html",
-					            "holder" => "div",
-					            "class" => "",
-					            "heading" => __( "Заголовок", "crypto" ),
-					            "param_name" => "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
-					            "value" => __( "", "crypto" ),
-					            "description" => __( "Введите Заголовок.", "crypto" )
-						        ),
-						        array(
-					            "type" => "textfield",
-					            "holder" => "div",
-					            "class" => "",
-					            "heading" => __( "Дополнительный класс", "crypto" ),
-					            "param_name" => "add_class",
-					            "value" => __( "", "crypto" ),
-					            "description" => __( "Необязательно.", "crypto" )
-						        )
+											"type" => "textfield",
+											"holder" => "div",
+											"class" => "",
+											"heading" => __( "Заголовок", "visotskiy" ),
+											"param_name" => "title",
+											"value" => __( "", "visotskiy" ),
+											"description" => __( "Введите Заголовок.", "visotskiy" )
+										),
+										array(
+											"type" => "textfield",
+											"holder" => "div",
+											"class" => "",
+											"heading" => __( "Очередность заголовка", "visotskiy" ),
+											"param_name" => "status",
+											"value" => __( "", "visotskiy" ),
+											"description" => __( "1,2,3,4,5,6", "visotskiy" )
+										),
+										array(
+											"type" => "textfield",
+											"holder" => "div",
+											"class" => "",
+											"heading" => __( "Дополнительный класс", "visotskiy" ),
+											"param_name" => "add_class",
+											"value" => __( "", "visotskiy" ),
+											"description" => __( "Необязательно.", "visotskiy" )
+										)
 								),
 						)
 				);
@@ -60,15 +69,16 @@ class vcInfoBox extends WPBakeryShortCode {
 				extract(
 						shortcode_atts(
 								array(
-									'add_class'	=> ''
+									'add_class' => '',
+									'status'		=> '2',
+									'title'			=> ''
 								), 
 								$atts
 						)
 				);
 				 
 				// Fill $html var with data
-				$html = '
-				<div class="vsection-title vtitle-md '.$add_class.'">' . $content . '</div>';
+				$html = '<h'.$status.' class="section__title title-sm '.$add_class.'">' . $title . '</h'.$status.'>';
 				 
 				return $html;
 				 
