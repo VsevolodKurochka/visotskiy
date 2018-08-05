@@ -25,13 +25,11 @@ gulp.task(
 	gulp.parallel(
 		serve,
 		'sass',
-		'templates',
 		'scripts',
 		'concat',
 		'image',
 		'fonts',
 		'sass:watch',
-		'templates:watch',
 		'scripts:watch',
 		'concat:watch',
 		'image:watch',
@@ -46,7 +44,6 @@ gulp.task(
 		'clean',
 		gulp.parallel(
 			'sass',
-			'templates',
 			'scripts',
 			'image',
 			'fonts'

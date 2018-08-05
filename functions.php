@@ -25,11 +25,22 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
+		add_theme_support( 'custom-logo' );
+
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
+		add_filter('upload_mimes', array($this, 'cc_mime_types'), 1, 1);
+
+		$this->add_options_page();
+		$this->generate_menu();
+
+
 		parent::__construct();
 	}
 
@@ -41,19 +52,43 @@ class StarterSite extends TimberSite {
 		//this is where you can register custom taxonomies
 	}
 
+	function register_scripts() {
+		wp_enqueue_style( 'css-style', get_stylesheet_uri() );
+
+		wp_enqueue_style( 'css-main', get_template_directory_uri() . '/static/build/css/style.css' );
+
+		//wp_enqueue_script( 'js-libs', get_template_directory_uri() . '/static/build/js/libs.min.js', array('jquery'), '20151215', true );
+
+		//wp_enqueue_script( 'js-jquery', get_template_directory_uri() . '/static/build/js/jquery.main.js', array(), '20151215', true );
+
+		//wp_enqueue_script( 'js-vanilla-scripts', get_template_directory_uri() . '/static/build/js/vanilla.main.js', array(), '20151215', true );
+	}
+
+	function generate_menu() {
+		
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Меню в шапке', 'visotskiy' ),
+		) );
+	}
+
+	function add_options_page() {
+		acf_add_options_page();
+	}
+
+	function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		$mimes['pdf'] = 'application/pdf';
+		return $mimes;
+	}
+
+
+
 	function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new TimberMenu('menu-1');
 		$context['site'] = $this;
 		return $context;
 	}
 
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
