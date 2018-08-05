@@ -1,10 +1,17 @@
 .header
 	+relative()
-	min-height: 600px
-
-	height: 100vh
+	
+	+max(sm)
+		+padding-y(60px)
+		&:before
+			content: ""
+			+absolute(0, null, null, 0)
+			+size(100%)
+			background-color: transparentize($color-black, 0.2)
 
 	+min(sm)
+		height: 100vh
+		min-height: 600px
 		+row()
 		align-items: center
 
@@ -55,7 +62,8 @@
 
 	&__bg
 		background-size: cover
-
+		+absolute(0, 0)
+		+size(100%)
+		z-index: -1
 		+min(sm)
-			+absolute(0, 0)
-			+size(50%, 100%)
+			width: 50%
