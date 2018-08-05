@@ -13,11 +13,15 @@
 		+font('eb')
 		+transition()
 
+		font-size: 13px
+		+min(sm)
+			font-size: 17px
+
 		@at-root
 			%arrow
 				content: ""
-				+size(30px, 21px)
-				margin-top: -10.5px
+				+size(18px, 13px)
+				margin-top: -6.5px
 				+absolute(50%)
 				+bg('../img/pagenavi-arrow.svg')
 				+transition()
