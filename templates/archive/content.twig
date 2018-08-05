@@ -4,6 +4,8 @@
 			{% for post in posts %}
 				{{siteMacros.review('col-12 col-sm-6', post)}}
 			{% endfor %}
+
 		</div>
+		{{function('wp_pagenavi')}}
 	</div>
 </section>

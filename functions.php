@@ -24,6 +24,14 @@ if ( ! class_exists( 'Timber' ) ) {
 
 show_admin_bar(false);
 
+// function custom_posts_per_page( $query ) {
+
+// 	if ( $query->is_archive() ) {
+// 	    set_query_var('posts_per_page', 1);
+// 	}
+// }
+// add_action( 'pre_get_posts', 'custom_posts_per_page' );
+
 Timber::$dirname = array('templates', 'views');
 
 class StarterSite extends TimberSite {
