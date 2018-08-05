@@ -1,0 +1,99 @@
+.home-greeting
+
+	+relative()
+	z-index: 1
+	color: $color-white
+	
+	+margin-y(0)
+	+padding-y(45px)
+
+	+min(sm)
+		+padding-y(90px)
+
+	+min(md)
+		+padding-y(150px, 90px)
+
+	+min(xlg)
+		+padding-y(220px, 100px)
+
+	@at-root
+		%pseudo
+			content: ""
+			+absolute(0, null, null, 0)
+
+	&:before
+		@extend %pseudo
+		+size(100%)
+		background-color: transparentize($color-black, 0.15)
+		z-index: -2
+
+	&:after
+		@extend %pseudo
+		+size(25%, 100%)
+		background-color: #141414
+		z-index: -1
+
+	&__title
+		+font('eb')
+
+		margin-bottom: 30px
+
+		+min(lg)
+			margin-bottom: 45px
+
+		+min(xlg)
+			margin-bottom: 60px
+
+		strong
+			color: $color-brand-1
+
+	&__quote
+		+relative()
+		padding-left: 45px
+		font-style: italic
+
+		&:before
+			content: ""
+			+absolute(0, null, null, 0)
+			+size(30px, 20px)
+			+bg('../img/quote.svg')
+
+		+min(sm)
+			padding-left: 0
+
+			&:before
+				top: -30px
+				left: -70px
+				+size(55px, 38px)
+
+		+min(md)
+			max-width: 80%
+		p
+			&:not(:last-child)
+				margin-bottom: 15px
+
+	&__anchor
+		text-align: center
+		margin-bottom: 0
+
+		&-link
+			display: inline-block
+			animation: homeGreetingArrowAnimation 5s linear 0s infinite
+
+			@at-root
+				@keyframes homeGreetingArrowAnimation
+					0%,100%
+						transform: none
+					50%
+						transform: translateY(10px)
+
+			svg
+				height: 55px
+				path
+					fill: #fff
+					+transition()
+				.cls-1
+					fill: none
+
+				&:hover path
+					fill: $color-brand-1

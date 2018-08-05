@@ -7,6 +7,8 @@ add_action( 'vc_before_init', 'vc_before_init_actions' );
 function vc_before_init_actions() {
 	// Require new custom Element
 	require_once( get_template_directory().'/visual_composer/vc-elements/vc_new_title.php' ); 
+
+	require_once( get_template_directory().'/visual_composer/vc-elements/vc_review_type_1.php' ); 
 }
 
 

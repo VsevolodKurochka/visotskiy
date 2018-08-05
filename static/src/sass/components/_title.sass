@@ -8,7 +8,7 @@ $title-sm: ("title-sm": ('default': 20px, 'sm': 20px, 'md': 30px, 'lg': 40px))
 $title-md: ("title-md": ('default': 25px, 'sm': 30px, 'md': 40px, 'lg': 50px))
 
 /// Define sizes for title-lg
-$title-lg: ("title-lg": ('default': 30px, 'sm': 40px, 'md': 50px, 'lg': 60px))
+$title-lg: ("title-lg": ('default': 30px, 'sm': 40px, 'md': 50px, 'lg': 50px, 'xlg': 60px))
 
 // Merge all defined maps
 $sizes: map-merge($title-xs, $title-sm)
@@ -18,7 +18,7 @@ $sizes: map-merge($sizes, $title-lg)
 %title-default
   margin-top: 10px
   margin-bottom: 15px
-  line-height: 1.2
+  line-height: 1.1
   font-weight: normal
 
 +b('title')

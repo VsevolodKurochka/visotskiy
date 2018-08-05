@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @var $css_animation
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Column
+ * plugins\js_composer\include\templates\params\column_offset
  */
 $el_class = $el_id = $width = $parallax_speed_bg = $parallax_speed_video = $parallax = $parallax_image = $video_bg = $video_bg_url = $video_bg_parallax = $css = $offset = $css_animation = '';
 $output = '';
