@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="footer__row row">
-			<div class="col-12 col-sm-6 col-md-5">
+			<div class="footer__column col-12 col-sm-6 col-md-5">
 				<div class="footer__info">
 					<img src="{{options.footer_logo}}" class="footer__info-logo" alt="{{site.name}}">
 					<div class="footer__info-content">
@@ -10,7 +10,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="footer__column col-12 col-sm-4 col-md-3">
 				<ul class="footer__list footer__list_phones">
 					{% for phone in options.phones %}
 						<li><a class="footer__list-link" href="tel: {{phone.phone}}">{{phone.phone}}</a></li>
