@@ -1,13 +1,30 @@
 <?php
 	function generate_review( $atts ) {
-		$atts = shortcode_atts( array(
-			'href'   => 'http://site.ru',
-			'height' => '550px',
-			'width'  => '600px',     
-		), $atts );
+		// $atts = shortcode_atts( array(
+		// 	'post'   => '',
+		// 	'class'	 => 'col-12 col-sm-6'
+		// ), $atts );
+		if ( isset($atts['post']) ) {
+      $post = $atts['post'];
+    }
+    else {
+      $post = false;
+    }
 
-		return '<iframe src="'. $atts['href'] .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'"> <p>Your Browser does not support Iframes.</p></iframe>';
-		return Timber::compile( 'partial/review.twig', array( 'id' => $id ) );
+    if ( isset($atts['class']) ) {
+      $class = sanitize_text_field($atts['class']);
+    }
+    else {
+      $class = 'col-12 col-sm-6';
+    }
+
+		return Timber::compile( 
+			'partial/review.twig', 
+			array( 
+				'post' 	=> $post,
+				'class'	=> $class
+			) 
+		);
 	}
 	add_shortcode('review', 'generate_review');
 ?>

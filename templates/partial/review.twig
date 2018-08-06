@@ -1,0 +1,21 @@
+<div class="review {{class}}">
+	<div class="review__header">
+		<p class="review__header-category">{{ post.terms('category') | join(', ') }}</p>
+		<p class="review__header-name">{{post.name}}</p>
+	</div>
+	<div class="review__content">
+		{% if post.get_field('video') %}
+			<a href="{{post.link}}" class="review__content-link">
+				<img src="{{post.thumbnail|resize(560,320)}}" alt="{{post.name}}" class="review__content-image">
+			</a>
+		{% else %}
+			<div class="review__content-info">
+				<img src="{{post.thumbnail|resize(126,126)}}" alt="{{post.name}}" class="review__content-info-image">
+				<div class="review__content-info-body">
+					<div class="review__content-info-body-excerpt">{{post.preview.read_more('').end('').length(20)}}</div>
+					<a href="{{post.link}}" class="review__content-info-body-link">Читать полностью</a>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>
