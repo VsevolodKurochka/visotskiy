@@ -13,6 +13,8 @@
 
 		return $excerpt;
 	}
+
+	
 	add_shortcode('loop', 'fb_custom_query_shortcode');
 	function fb_custom_query_shortcode( $atts ) {
 		 
@@ -21,28 +23,38 @@
 				'posts_per_page' 	=> '2',
 				'category__in'		=> '',
 				'class'						=> 'col-12 col-sm-6',
-				'compare'					=> ''
+				'compare'					=> '',
+				'before'					=> ' class="row" '
 		 ), $atts ) );
 
-		 $lastposts = get_posts( array(
-				'posts_per_page'	=> $posts_per_page,
-				'post_type'				=> 'post',
-				'post_status'			=> 'publish',
-				'category__in'		=> $category__in,
-				'meta_query' => array(
-						array(
-							'key'     		=> 'video',
-							'value'				=> '',
-							'compare' 		=> $compare 
-						)
-				)
-		 ) );
+		 if($compare != ''){
+			 $lastposts = get_posts( array(
+					'posts_per_page'	=> $posts_per_page,
+					'post_type'				=> 'post',
+					'post_status'			=> 'publish',
+					'cat'		=> $category__in,
+					'meta_query' => array(
+							array(
+								'key'     		=> 'video',
+								'value'				=> '',
+								'compare' 		=> $compare 
+							)
+					)
+			 ) );
+			}else{
+				$lastposts = get_posts( array(
+					'posts_per_page'	=> $posts_per_page,
+					'post_type'				=> 'post',
+					'post_status'			=> 'publish',
+					'cat'		=> $category__in
+			 ) );
+			}
 		 
 		 // Reset and setup variables
 		 $output = '';
 		 
 		 // the loop
-		 $output .= '<div class="row">';
+		 $output .= '<div '.$before.'>';
 			 foreach( $lastposts as $post ){ 
 				setup_postdata($post);
 				$temp_id 				= $post->ID;
