@@ -1,6 +1,10 @@
 .review-type-1
 	margin-bottom: 30px
 
+	+min(md)
+		&:first-child
+			min-height: 700px
+
 	&__header
 		+relative()
 		font-size: 0
@@ -15,8 +19,11 @@
 
 		&-content
 			+absolute(null, null, 0, 0)
-			padding-left: 30px
-			padding-bottom: 30px
+			width: 100%
+			padding: 30px
+
+			&_center
+				text-align: center
 
 		&-title
 			color: $color-white
@@ -31,5 +38,11 @@
 				font-size: 28px
 
 	&__content
+
 		p
 			+offset(15px)
+
+	&__btn
+		padding: 15px 30px
+		margin-top: 15px
+		min-width: 180px

@@ -50,6 +50,18 @@ class vcReviewType1 extends WPBakeryShortCode {
 											'admin_label' => false,
 											'weight' => 0
 										),
+
+										array(
+											'type' => 'vc_link',
+											'holder' => 'p',
+											'class' => 'title-class',
+											'heading' => __( 'Ссылка кнопки:', 'visotskiy' ),
+											'param_name' => 'btn_link',
+											'value' => "",
+											'description' => __( 'Введите ссылку кнопки.', 'visotskiy' ),
+											'admin_label' => false,
+											'weight' => 0
+										),
 										
 										array(
 											"type" => "textarea_html",
@@ -75,7 +87,8 @@ class vcReviewType1 extends WPBakeryShortCode {
 						shortcode_atts(
 								array(
 									'title' 			=> '',
-									'image_url' 	=> ''
+									'image_url' 	=> '',
+									'btn_link'		=> ''
 								), 
 								$atts
 						)
@@ -83,13 +96,21 @@ class vcReviewType1 extends WPBakeryShortCode {
 				 
 				// Fill $html var with data
 				$img = wp_get_attachment_image_url($image_url, 'full');
-
+				if($btn_link != ''){
+					$btn_href = vc_build_link($btn_link);
+					$link = '<a href="'.site_url($btn_href["url"]).'" class="btn btn_border btn_border-white review-type-1__btn" target="_blank">Смотреть</a>';
+					$header_content_class = 'review-type-1__header-content_center';
+				}else{
+					$link = '';
+					$header_content_class = '';
+				}
 				$html = '
 				<div class="review-type-1">
 					<div class="review-type-1__header">
 						<img src="'.$img.'" alt="'.$title.'" class="review-type-1__header-image">
-						<div class="review-type-1__header-content">
+						<div class="review-type-1__header-content '.$header_content_class.'">
 							<p class="review-type-1__header-title">'.$title.'</p>
+							'.$link.'
 						</div>
 					</div>
 					<div class="review-type-1__content">
