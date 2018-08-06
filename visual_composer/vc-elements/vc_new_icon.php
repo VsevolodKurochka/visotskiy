@@ -105,7 +105,7 @@ class vcNewIcon extends WPBakeryShortCode {
 					<div class="icon__header">
 						<img src="'.$img.'" alt="'.$title.'" class="icon__header-image">
 					</div>
-					<div class="icon__content">
+					<div class="icon__content article">
 						'.wpautop($content).'
 					</div>
 					<div class="icon__footer">
