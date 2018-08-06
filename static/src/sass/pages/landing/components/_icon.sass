@@ -1,0 +1,29 @@
+.icon
+	text-align: center
+
+	@at-root
+		%offset
+			margin-bottom: 30px
+
+			+min(md)
+				margin-bottom: 45px
+
+	&__header
+		@extend %offset
+		&-image
+			height: 90px
+
+	&__content
+		@extend %offset
+		+min(sm)
+			width: 80%
+			+margin-x(auto)
+
+			font-size: 20px
+
+	&__btn
+
+		+min(sm)
+			padding: 30px
+			font-size: 20px
+			min-width: 350px
