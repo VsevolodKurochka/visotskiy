@@ -1,19 +1,4 @@
 <?php
-	function excerpt($id, $limit) {
-		$excerpt = explode(' ', get_the_excerpt($id), $limit);
-
-		if (count($excerpt) >= $limit) {
-				array_pop($excerpt);
-				$excerpt = implode(" ", $excerpt) . '...';
-		} else {
-				$excerpt = implode(" ", $excerpt);
-		}
-
-		$excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
-
-		return $excerpt;
-	}
-
 	
 	add_shortcode('loop', 'fb_custom_query_shortcode');
 	function fb_custom_query_shortcode( $atts ) {
@@ -82,7 +67,6 @@
 		 $output .= '</div>';
 		 return $output;
 		 wp_reset_postdata();
+	}
 		 
 ?>
-
-<?php } ?>

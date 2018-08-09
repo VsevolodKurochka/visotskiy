@@ -14,10 +14,12 @@
 				+font('b')
 
 			&.current-menu-item a
-				color: $color-brand-1
+				color: $color-black
 				&:before,
 				&:after
 					width: 100%
+				+min(md)
+					color: $color-brand-1
 
 			+max(md)
 				margin-bottom: 10px
