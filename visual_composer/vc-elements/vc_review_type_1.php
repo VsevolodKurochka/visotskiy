@@ -98,7 +98,7 @@ class vcReviewType1 extends WPBakeryShortCode {
 				$img = wp_get_attachment_image_url($image_url, 'full');
 				if($btn_link != ''){
 					$btn_href = vc_build_link($btn_link);
-					$link = '<a href="'.site_url($btn_href["url"]).'" class="btn btn_border btn_border-white review-type-1__btn" target="_blank">Смотреть</a>';
+					$link = '<a href="'.site_url($btn_href["url"]).'" class="btn btn_border btn_border-white review-type-1__btn effect effect_bounce-top" target="_blank">Смотреть</a>';
 					$header_content_class = 'review-type-1__header-content_center';
 				}else{
 					$link = '';
