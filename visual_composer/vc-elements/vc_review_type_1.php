@@ -52,6 +52,16 @@ class vcReviewType1 extends WPBakeryShortCode {
 										),
 
 										array(
+											"type" => "textfield",
+											"holder" => "div",
+											"class" => "",
+											"heading" => __( "Очередность заголовка", "visotskiy" ),
+											"param_name" => "status",
+											"value" => __( "", "visotskiy" ),
+											"description" => __( "Варианты: 1,2,3,4,5,6. Оставив поле пустым заголовок будет по умолчанию h3", "visotskiy" )
+										),
+
+										array(
 											'type' => 'vc_link',
 											'holder' => 'p',
 											'class' => 'title-class',
@@ -88,7 +98,8 @@ class vcReviewType1 extends WPBakeryShortCode {
 								array(
 									'title' 			=> '',
 									'image_url' 	=> '',
-									'btn_link'		=> ''
+									'btn_link'		=> '',
+									'status'			=> '3',
 								), 
 								$atts
 						)
@@ -109,7 +120,7 @@ class vcReviewType1 extends WPBakeryShortCode {
 					<div class="review-type-1__header">
 						<img src="'.$img.'" alt="'.$title.'" class="review-type-1__header-image">
 						<div class="review-type-1__header-content '.$header_content_class.'">
-							<p class="review-type-1__header-title">'.$title.'</p>
+							<h'.$status.' class="review-type-1__header-title">'.$title.'</h'.$status.'>
 							'.$link.'
 						</div>
 					</div>

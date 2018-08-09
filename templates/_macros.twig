@@ -1,11 +1,16 @@
-{% macro header(title, image) %}
+{% macro header(title, image, type) %}
+	{% if type %}
+		{% set titleType = type %}
+	{% else %}
+		{% set titleType = '1' %}
+	{% endif %}
 	<header class="header">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-sm-6">
 					<div class="header__content">
 						<div class="header__breadcrumbs">{{ function('bcn_display') }}</div>
-						<h1 class="header__title title-md">{{title}}</h1>
+						<h{{titleType}} class="header__title title-md">{{title}}</h{{titleType}}>
 					</div>
 				</div>
 			</div>
@@ -17,7 +22,7 @@
 	<div class="review {{class}}">
 		<div class="review__header">
 			<p class="review__header-category">{{ post.terms('category') | join(', ') }}</p>
-			<p class="review__header-name">{{post.name}}</p>
+			<h2 class="review__header-name">{{post.name}}</h2>
 		</div>
 		<div class="review__content">
 			{% if post.get_field('video') %}
