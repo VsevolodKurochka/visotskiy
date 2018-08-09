@@ -22,7 +22,7 @@
 	<div class="review {{class}}">
 		<div class="review__header">
 			<p class="review__header-category">{{ post.terms('category') | join(', ') }}</p>
-			<h2 class="review__header-name">{{post.name}}</h2>
+			<h3 class="review__header-name">{{post.name}}</h3>
 		</div>
 		<div class="review__content">
 			{% if post.get_field('video') %}
